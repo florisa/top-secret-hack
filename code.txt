@@ -1,0 +1,5 @@
+import numpy as np
+import pandas as pd
+
+# excel file lesen
+assembly_data = pd.read_excel("Daten.xlsx", sheet_name = "dataset1")
