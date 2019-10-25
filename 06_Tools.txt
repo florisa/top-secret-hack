@@ -1,0 +1,11 @@
+seaborn
+pandas
+graphviz
+keras
+tensorflow
+sklearn
+imblearn
+xgboost
+matplotlib
+numpy
+scipy
