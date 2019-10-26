@@ -117,7 +117,7 @@ class Models():
         from sklearn.model_selection import train_test_split
         from sklearn.metrics import r2_score
         from keras.models import Sequential
-        from keras.layers import Dense
+        from keras.layers import Dense, Dropout
         from keras.callbacks import ModelCheckpoint
         import matplotlib.pyplot as plt
 
@@ -257,11 +257,11 @@ if __name__ == "__main__":
     features, targets = dataset.load_datasets(args["dataset"])
 
     # One Hot Encoding on categorical variables of targets
-    targets = targets.one_hotencoding(targets, column = -1)
+    targets = dataset.one_hotencoding(targets, column = -1)
 
     # Handling Missing Data
-    features = features.missing_values(features)
-    targets = targets.missing_values(targets)
+    features = dataset.missing_values(features)
+    targets = dataset.missing_values(targets)
 
     # if args["model"] == "Random Forest":
     #     model = Models()
@@ -286,6 +286,6 @@ if __name__ == "__main__":
 
     if args["model"] == "NN":
         model = Models()
-        features = features.scaling_values(features)
+        features = dataset.scaling_values(features)
         weights = args["weights"]
         model = model.train_nn(features, targets, weights)     
