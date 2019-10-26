@@ -1,5 +1,25 @@
-import numpy as np
-import pandas as pd
+from keras.models import Sequential
+from keras.layers import Dense
 
-# excel file lesen
-assembly_data = pd.read_excel("Daten.xlsx", sheet_name = "dataset1")
+# initialize the model
+model = Sequential()
+
+# Adding layers
+model.add(Dense(output_dim = 100, init = 'uniform', activation = 'relu', input_dim = 47))
+model.DROPOUT
+model.add(Dense(output_dim = 50, init = 'uniform', activation = 'relu'))
+model.DROPOUT
+model.add(Dense(output_dim = 25, init = 'uniform', activation = 'relu'))
+model.DROPOUT
+model.add(Dense(output_dim = 10, init = 'uniform', activation = 'linear'))
+
+# Compiling model
+model.compile(optimizer = 'rmsprop', loss = 'SGD', metrics = ['mse']
+
+# Fitting model
+model.fit(x_train, y_train, batch_size = 32, epochs = 100)
+
+# Predicting
+y_pred = model.predict(x_test)
+
+
